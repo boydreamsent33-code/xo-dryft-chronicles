@@ -1,7 +1,7 @@
 import { Music2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import coverDryfting from "@/assets/cover-dryfting.jpg";
+import coverDryfting from "@/assets/cover-dryfting-new.jpg";
 import coverAllOfMe from "@/assets/cover-all-of-me.jpg";
 import coverHeartInMotion from "@/assets/cover-heart-in-motion.jpg";
 import coverWithoutYou from "@/assets/cover-without-you.jpg";
