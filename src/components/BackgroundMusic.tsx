@@ -8,7 +8,7 @@ import track3 from "@/assets/ghetto.mp3";
 const tracks = [
   { title: "Come On", src: track1 },
   { title: "3am", src: track2 },
-  { title: "Ghetto", src: track3 },
+  { title: "Nicole Speaks", src: track3 },
 ];
 
 const BackgroundMusic = () => {
