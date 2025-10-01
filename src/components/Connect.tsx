@@ -39,6 +39,18 @@ const Connect = () => {
       url: "https://www.youtube.com/channel/UCEU1O3UeUtpb_AbPF5pdR4Q",
       color: "hover:text-[#FF0000]",
     },
+    {
+      name: "Spotify",
+      icon: <span className="text-2xl">🎵</span>,
+      url: "https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D?si=v-1KohdxTEK0qeOYiZsaeg",
+      color: "hover:text-[#1DB954]",
+    },
+    {
+      name: "Apple Music",
+      icon: <span className="text-2xl">🎧</span>,
+      url: "https://music.apple.com/us/artist/xo-dryft/1794011466",
+      color: "hover:text-[#FA243C]",
+    },
   ];
 
   return (

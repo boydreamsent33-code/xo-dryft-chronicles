@@ -1,6 +1,8 @@
 import { Music2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import spotifyReleases from "@/assets/spotify-releases.png";
+import spotifyProfile from "@/assets/spotify-profile.png";
 
 const Music = () => {
   const platforms = [
@@ -93,71 +95,48 @@ const Music = () => {
               Latest Release
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-card/50 rounded-lg p-6 border border-primary/20 hover:border-primary/40 transition-all">
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg mb-4 flex items-center justify-center">
-                  <Music2 className="w-16 h-16 text-primary" />
-                </div>
-                <h4 className="text-xl font-bold mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
-                  Dryfting
-                </h4>
-                <p className="text-muted-foreground mb-4">Album • 2025</p>
-                <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                  <p>Popular tracks:</p>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>3AM</li>
-                    <li>Come On</li>
-                  </ul>
-                </div>
+              {/* Spotify Profile Image */}
+              <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
+                <img 
+                  src={spotifyProfile} 
+                  alt="XO Dryft Spotify Profile" 
+                  className="w-full rounded-lg mb-4"
+                />
                 <Button variant="hero" className="w-full" asChild>
                   <a
-                    href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                    href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D?si=v-1KohdxTEK0qeOYiZsaeg"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Listen Now
+                    Listen on Spotify
                   </a>
                 </Button>
               </div>
 
-              <div className="space-y-4">
-                <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
-                  <h4 className="font-bold mb-1">All OF ME</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Single • 2025</p>
+              {/* Spotify Releases Image */}
+              <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
+                <img 
+                  src={spotifyReleases} 
+                  alt="XO Dryft Popular Releases" 
+                  className="w-full rounded-lg mb-4"
+                />
+                <div className="grid grid-cols-2 gap-2">
                   <Button variant="glass" size="sm" asChild>
                     <a
-                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                      href="https://music.apple.com/us/artist/xo-dryft/1794011466"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Stream
+                      Apple Music
                     </a>
                   </Button>
-                </div>
-
-                <div className="bg-card/50 rounded-lg p-4 border border-secondary/20 hover:border-secondary/40 transition-all">
-                  <h4 className="font-bold mb-1">Heart In Motion</h4>
-                  <p className="text-sm text-muted-foreground mb-3">EP • 2025</p>
                   <Button variant="glass" size="sm" asChild>
                     <a
-                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                      href="https://www.youtube.com/channel/UCEU1O3UeUtpb_AbPF5pdR4Q"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Stream
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
-                  <h4 className="font-bold mb-1">Without You</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Single • 2025</p>
-                  <Button variant="glass" size="sm" asChild>
-                    <a
-                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Stream
+                      YouTube
                     </a>
                   </Button>
                 </div>

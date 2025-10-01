@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import heroImage from "@/assets/hero-artist.jpg";
+import heroImage from "@/assets/background-1.jpg";
 
 const Hero = () => {
   const handleStreamClick = () => {

@@ -1,10 +1,19 @@
 import { User } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import backgroundImage from "@/assets/background-2.jpg";
 
 const About = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-6xl">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <img
+          src={backgroundImage}
+          alt="XO DRYFT Background"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <User className="w-8 h-8 text-accent" />
