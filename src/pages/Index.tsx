@@ -5,7 +5,6 @@ import About from "@/components/About";
 import Tour from "@/components/Tour";
 import Connect from "@/components/Connect";
 import Footer from "@/components/Footer";
-import BackgroundMusic from "@/components/BackgroundMusic";
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
         <Connect />
       </main>
       <Footer />
-      <BackgroundMusic />
     </div>
   );
 };
