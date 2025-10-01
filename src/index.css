@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 280 100% 70%;
+    --primary: 0 85% 55%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 180 100% 60%;
-    --secondary-foreground: 240 10% 3.9%;
+    --secondary: 10 80% 50%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 10% 15%;
+    --muted-foreground: 0 5% 65%;
 
-    --accent: 320 100% 65%;
+    --accent: 0 100% 65%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,19 +34,19 @@ All colors MUST be HSL.
 
     --border: 240 10% 15%;
     --input: 240 10% 15%;
-    --ring: 280 100% 70%;
+    --ring: 0 85% 55%;
 
     --radius: 0.75rem;
 
     /* Neon gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%) 0%, hsl(320 100% 65%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(180 100% 60%) 0%, hsl(280 100% 70%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(280 80% 10%) 50%, hsl(240 10% 3.9%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0 85% 55%) 0%, hsl(0 100% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(10 80% 50%) 0%, hsl(0 85% 55%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(0 80% 15%) 50%, hsl(240 10% 3.9%) 100%);
     
     /* Glows */
-    --glow-primary: 0 0 40px hsl(280 100% 70% / 0.3);
-    --glow-secondary: 0 0 40px hsl(180 100% 60% / 0.3);
-    --glow-accent: 0 0 40px hsl(320 100% 65% / 0.3);
+    --glow-primary: 0 0 40px hsl(0 85% 55% / 0.4);
+    --glow-secondary: 0 0 40px hsl(10 80% 50% / 0.4);
+    --glow-accent: 0 0 40px hsl(0 100% 65% / 0.4);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

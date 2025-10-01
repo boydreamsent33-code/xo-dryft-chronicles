@@ -7,19 +7,19 @@ const Music = () => {
     {
       name: "Spotify",
       icon: "🎵",
-      url: "https://open.spotify.com",
+      url: "https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D?si=v-1KohdxTEK0qeOYiZsaeg",
       color: "from-[#1DB954] to-[#1ed760]",
     },
     {
       name: "Apple Music",
       icon: "🎧",
-      url: "https://music.apple.com",
+      url: "https://music.apple.com/us/artist/xo-dryft/1794011466",
       color: "from-[#FA243C] to-[#fc3c4d]",
     },
     {
       name: "YouTube Music",
       icon: "▶️",
-      url: "https://music.youtube.com",
+      url: "https://www.youtube.com/channel/UCEU1O3UeUtpb_AbPF5pdR4Q",
       color: "from-[#FF0000] to-[#ff1a1a]",
     },
   ];

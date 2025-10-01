@@ -24,19 +24,19 @@ const Connect = () => {
     {
       name: "Instagram",
       icon: <Instagram className="w-6 h-6" />,
-      url: "https://instagram.com",
+      url: "https://www.instagram.com/reel/DOUPAy6kmS2/?utm_source=ig_web_copy_link",
       color: "hover:text-[#E4405F]",
     },
     {
       name: "TikTok",
       icon: <span className="text-2xl">📱</span>,
-      url: "https://tiktok.com",
+      url: "https://www.tiktok.com/@xodrft_",
       color: "hover:text-[#00f2ea]",
     },
     {
       name: "YouTube",
       icon: <Youtube className="w-6 h-6" />,
-      url: "https://youtube.com",
+      url: "https://www.youtube.com/channel/UCEU1O3UeUtpb_AbPF5pdR4Q",
       color: "hover:text-[#FF0000]",
     },
   ];

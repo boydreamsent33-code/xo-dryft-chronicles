@@ -88,8 +88,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "glow": {
-          "0%": { boxShadow: "0 0 20px hsl(280 100% 70% / 0.3)" },
-          "100%": { boxShadow: "0 0 40px hsl(280 100% 70% / 0.8)" },
+          "0%": { boxShadow: "0 0 20px hsl(0 85% 55% / 0.3)" },
+          "100%": { boxShadow: "0 0 40px hsl(0 85% 55% / 0.8)" },
         },
         "slide-in": {
           "0%": { opacity: "0", transform: "translateY(20px)" },

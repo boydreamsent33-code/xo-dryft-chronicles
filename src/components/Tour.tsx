@@ -1,8 +1,11 @@
 import { Calendar, MapPin, Ticket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import BookingModal from "./BookingModal";
+import { useState } from "react";
 
 const Tour = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
   const shows = [
     {
       date: "Coming Soon",
@@ -76,11 +79,16 @@ const Tour = () => {
           <p className="text-secondary-foreground/80 mb-6">
             Booking inquiries and show requests welcomed
           </p>
-          <Button variant="glass" size="lg">
+          <Button 
+            variant="glass" 
+            size="lg"
+            onClick={() => setBookingOpen(true)}
+          >
             Contact for Booking
           </Button>
         </Card>
       </div>
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
