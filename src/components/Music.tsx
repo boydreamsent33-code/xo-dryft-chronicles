@@ -83,7 +83,7 @@ const Music = () => {
           ))}
         </div>
 
-        {/* Featured Embed Placeholder */}
+        {/* Latest Release Section */}
         <div className="mt-16">
           <Card className="bg-card/30 backdrop-blur-lg border border-primary/20 p-8">
             <h3
@@ -92,10 +92,76 @@ const Music = () => {
             >
               Latest Release
             </h3>
-            <div className="aspect-video bg-muted/20 rounded-lg flex items-center justify-center">
-              <p className="text-muted-foreground">
-                Embed your latest music video or Spotify player here
-              </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-card/50 rounded-lg p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg mb-4 flex items-center justify-center">
+                  <Music2 className="w-16 h-16 text-primary" />
+                </div>
+                <h4 className="text-xl font-bold mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                  Dryfting
+                </h4>
+                <p className="text-muted-foreground mb-4">Album • 2025</p>
+                <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                  <p>Popular tracks:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>3AM</li>
+                    <li>Come On</li>
+                  </ul>
+                </div>
+                <Button variant="hero" className="w-full" asChild>
+                  <a
+                    href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Listen Now
+                  </a>
+                </Button>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
+                  <h4 className="font-bold mb-1">All OF ME</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Single • 2025</p>
+                  <Button variant="glass" size="sm" asChild>
+                    <a
+                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Stream
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="bg-card/50 rounded-lg p-4 border border-secondary/20 hover:border-secondary/40 transition-all">
+                  <h4 className="font-bold mb-1">Heart In Motion</h4>
+                  <p className="text-sm text-muted-foreground mb-3">EP • 2025</p>
+                  <Button variant="glass" size="sm" asChild>
+                    <a
+                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Stream
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="bg-card/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-all">
+                  <h4 className="font-bold mb-1">Without You</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Single • 2025</p>
+                  <Button variant="glass" size="sm" asChild>
+                    <a
+                      href="https://open.spotify.com/artist/0MPKNQoL73e87pPn9ruL7D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Stream
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </Card>
         </div>
