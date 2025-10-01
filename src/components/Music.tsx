@@ -30,7 +30,7 @@ const Music = () => {
             {/* Featured Album - Dryfting */}
             <Card className="bg-card/50 backdrop-blur-lg border border-primary/20 p-6 hover:border-primary/40 transition-all hover:shadow-glow-primary">
               <div className="aspect-square rounded-lg mb-4 overflow-hidden">
-                <img src={coverDryfting} alt="Dryfting Album Cover" className="w-full h-full object-cover" />
+                
               </div>
               <h3 className="text-2xl font-bold mb-2" style={{
               fontFamily: "Orbitron, sans-serif"
