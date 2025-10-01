@@ -16,6 +16,13 @@ const BackgroundMusic = () => {
   const [isVisible, setIsVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // Ensure currentTrack is within bounds
+  useEffect(() => {
+    if (currentTrack >= tracks.length) {
+      setCurrentTrack(0);
+    }
+  }, [currentTrack]);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -68,11 +75,13 @@ const BackgroundMusic = () => {
     );
   }
 
+  const safeCurrentTrack = currentTrack < tracks.length ? currentTrack : 0;
+
   return (
     <div className="fixed bottom-6 right-6 z-50 bg-card/95 backdrop-blur-sm border rounded-lg shadow-xl p-4 min-w-[280px] animate-scale-in">
       <audio
         ref={audioRef}
-        src={tracks[currentTrack].src}
+        src={tracks[safeCurrentTrack].src}
         preload="metadata"
       />
       
@@ -91,7 +100,7 @@ const BackgroundMusic = () => {
       </div>
 
       <div className="mb-3">
-        <p className="text-sm font-semibold truncate">{tracks[currentTrack].title}</p>
+        <p className="text-sm font-semibold truncate">{tracks[safeCurrentTrack].title}</p>
         <p className="text-xs text-muted-foreground">XO DRYFT</p>
       </div>
 
