@@ -1,6 +1,10 @@
 import { Music2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import coverDryfting from "@/assets/cover-dryfting.jpg";
+import coverAllOfMe from "@/assets/cover-all-of-me.jpg";
+import coverHeartInMotion from "@/assets/cover-heart-in-motion.jpg";
+import coverWithoutYou from "@/assets/cover-without-you.jpg";
 
 const Music = () => {
   return (
@@ -28,11 +32,12 @@ const Music = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Featured Album - Dryfting */}
             <Card className="bg-card/50 backdrop-blur-lg border border-primary/20 p-6 hover:border-primary/40 transition-all hover:shadow-glow-primary">
-              <div className="aspect-square bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                <div className="text-center p-4">
-                  <div className="text-6xl mb-2">🎵</div>
-                  <p className="text-sm text-muted-foreground">Album Cover</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden">
+                <img 
+                  src={coverDryfting} 
+                  alt="Dryfting Album Cover" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
                 Dryfting
@@ -76,8 +81,12 @@ const Music = () => {
               {/* All OF ME */}
               <Card className="bg-card/50 backdrop-blur-lg border border-primary/20 p-4 hover:border-primary/40 transition-all">
                 <div className="flex gap-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">💿</span>
+                  <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0">
+                    <img 
+                      src={coverAllOfMe} 
+                      alt="All OF ME Cover" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-lg mb-1">All OF ME</h4>
@@ -100,8 +109,12 @@ const Music = () => {
               {/* Heart In Motion */}
               <Card className="bg-card/50 backdrop-blur-lg border border-secondary/20 p-4 hover:border-secondary/40 transition-all">
                 <div className="flex gap-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-secondary/20 to-primary/20 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">💿</span>
+                  <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0">
+                    <img 
+                      src={coverHeartInMotion} 
+                      alt="Heart In Motion Cover" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-lg mb-1">Heart In Motion</h4>
@@ -124,8 +137,12 @@ const Music = () => {
               {/* Without You */}
               <Card className="bg-card/50 backdrop-blur-lg border border-primary/20 p-4 hover:border-primary/40 transition-all">
                 <div className="flex gap-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">💿</span>
+                  <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0">
+                    <img 
+                      src={coverWithoutYou} 
+                      alt="Without You Cover" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-lg mb-1">Without You</h4>
