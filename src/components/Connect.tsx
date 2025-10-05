@@ -4,19 +4,49 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Connect = () => {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email: email.trim().toLowerCase() });
+
+      if (error) {
+        if (error.code === "23505") {
+          toast({
+            title: "Already subscribed! 🎵",
+            description: "This email is already on our newsletter list.",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Thanks for subscribing! 🎵",
+          description: "You'll be the first to know about new releases and shows.",
+        });
+        setEmail("");
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
       toast({
-        title: "Thanks for subscribing! 🎵",
-        description: "You'll be the first to know about new releases and shows.",
+        title: "Oops! Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
       });
-      setEmail("");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -96,8 +126,8 @@ const Connect = () => {
                 className="bg-background/50 border-primary/30 focus:border-primary"
                 required
               />
-              <Button type="submit" variant="hero" className="w-full">
-                Subscribe Now
+              <Button type="submit" variant="hero" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Subscribing..." : "Subscribe Now"}
               </Button>
             </form>
           </Card>
