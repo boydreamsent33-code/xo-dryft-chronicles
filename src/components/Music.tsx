@@ -47,6 +47,15 @@ const Music = () => {
                   <li className="flex items-center gap-2">
                     <span className="text-primary">2.</span> Come On
                   </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">3.</span> All Of Me
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">4.</span> Summer Love
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">5.</span> Cardio
+                  </li>
                 </ul>
               </div>
               <div className="grid grid-cols-2 gap-2">
