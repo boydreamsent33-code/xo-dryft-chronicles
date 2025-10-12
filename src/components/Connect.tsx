@@ -147,22 +147,23 @@ const Connect = () => {
             </p>
             <div className="space-y-4">
               {socials.map((social) => (
-                <Button
+                <a
                   key={social.name}
-                  variant="glass"
-                  className="w-full justify-start text-lg group"
-                  asChild
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3 ${social.color} transition-colors`}
+                  <Button
+                    variant="glass"
+                    className={`w-full justify-start text-lg group ${social.color} transition-colors`}
                   >
-                    {social.icon}
-                    <span>Follow on {social.name}</span>
-                  </a>
-                </Button>
+                    <span className="flex items-center gap-3">
+                      {social.icon}
+                      <span>Follow on {social.name}</span>
+                    </span>
+                  </Button>
+                </a>
               ))}
             </div>
           </Card>
