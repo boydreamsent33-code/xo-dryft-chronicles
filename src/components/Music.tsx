@@ -42,19 +42,34 @@ const Music = () => {
                 <p className="text-foreground/80 font-semibold">Popular Tracks:</p>
                 <ul className="space-y-1 text-muted-foreground">
                   <li className="flex items-center gap-2">
-                    <span className="text-primary">1.</span> 3AM
+                    <span className="text-primary">1.</span>
+                    <a href="https://open.spotify.com/track/69f9NiCP0435GvLcBMYPg0?si=f_cfAzI6QuGj39KXohlHVg" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      3AM
+                    </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-primary">2.</span> Come On
+                    <span className="text-primary">2.</span>
+                    <a href="https://open.spotify.com/track/5Kkrlmf9wtZAh8MlCkDeTx?si=MUswcP8BRAWTdCPCoFy5_g" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Come On
+                    </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-primary">3.</span> All Of Me
+                    <span className="text-primary">3.</span>
+                    <a href="https://open.spotify.com/track/6pMMyex8sekB8w6xIAjD4X?si=-vTQXxJkS-euTyyJTq5ptw" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      All Of Me
+                    </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-primary">4.</span> Summer Love
+                    <span className="text-primary">4.</span>
+                    <a href="https://open.spotify.com/track/3mVdg3qMa3Yndd8OWe0BuW?si=C2YEIsmASke27Ckmznw48g" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Summer Love
+                    </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-primary">5.</span> Cardio
+                    <span className="text-primary">5.</span>
+                    <a href="https://open.spotify.com/track/4qA9Cssjwi1KbfLzjW6846?si=pPuQhxdnTtOobwODGAVczA" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Cardio
+                    </a>
                   </li>
                 </ul>
               </div>
