@@ -55,11 +55,21 @@ const Music = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-primary">3.</span>
-                    <span className="hover:text-primary transition-colors">10k</span>
+                    <a href="https://open.spotify.com/track/6pMMyex8sekB8w6xIAjD4X?si=-vTQXxJkS-euTyyJTq5ptw" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      All Of Me
+                    </a>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-primary">4.</span>
-                    <span className="hover:text-primary transition-colors">Old Me</span>
+                    <a href="https://open.spotify.com/track/3mVdg3qMa3Yndd8OWe0BuW?si=C2YEIsmASke27Ckmznw48g" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Summer Love
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">5.</span>
+                    <a href="https://open.spotify.com/track/4qA9Cssjwi1KbfLzjW6846?si=pPuQhxdnTtOobwODGAVczA" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Cardio
+                    </a>
                   </li>
                 </ul>
               </div>
