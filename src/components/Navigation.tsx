@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CartDrawer } from "./CartDrawer";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,11 +58,18 @@ const Navigation = () => {
               Tour
             </button>
             <button
+              onClick={() => scrollToSection("store")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Store
+            </button>
+            <button
               onClick={() => scrollToSection("connect")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               Connect
             </button>
+            <CartDrawer />
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,11 +106,22 @@ const Navigation = () => {
                 Tour
               </button>
               <button
+                onClick={() => scrollToSection("store")}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Store
+              </button>
+              <button
                 onClick={() => scrollToSection("connect")}
                 className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
               >
                 Connect
               </button>
+              
+              {/* Cart Icon - Mobile */}
+              <div className="pt-4 border-t border-border">
+                <CartDrawer />
+              </div>
             </div>
           </div>
         )}
