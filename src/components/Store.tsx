@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchProducts, ShopifyProduct, CartItem } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -100,52 +101,57 @@ const Store = () => {
             const images = node.images.edges;
 
             return (
-              <Card key={node.id} className="overflow-hidden group hover:shadow-glow-primary transition-all duration-500 bg-card/80 backdrop-blur-md border-primary/20 hover:border-primary/50">
-                <CardHeader className="p-0 relative">
-                  {images.length > 1 ? (
-                    <Carousel className="w-full">
-                      <CarouselContent>
-                        {images.map((image, idx) => (
-                          <CarouselItem key={idx}>
-                            <div className="aspect-square bg-gradient-to-br from-background to-primary/10">
-                              <img
-                                src={image.node.url}
-                                alt={image.node.altText || node.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                      <CarouselPrevious className="left-2 bg-background/90 border-primary/30 hover:bg-primary/20" />
-                      <CarouselNext className="right-2 bg-background/90 border-primary/30 hover:bg-primary/20" />
-                    </Carousel>
-                  ) : images.length === 1 ? (
-                    <div className="aspect-square bg-gradient-to-br from-background to-primary/10">
-                      <img
-                        src={images[0].node.url}
-                        alt={images[0].node.altText || node.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-square bg-gradient-to-br from-background to-primary/10 flex items-center justify-center">
-                      <ShoppingCart className="h-16 w-16 text-primary/50" />
-                    </div>
-                  )}
-                </CardHeader>
-                <CardContent className="p-6 bg-gradient-to-b from-card/50 to-background">
-                  <CardTitle className="mb-2 text-foreground group-hover:text-primary transition-colors">{node.title}</CardTitle>
-                  <CardDescription className="mb-4 text-foreground/70">
-                    {node.description}
-                  </CardDescription>
-                  <p className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                    ${price.toFixed(2)}
-                  </p>
-                </CardContent>
+              <Card key={node.id} className="overflow-hidden group hover:shadow-glow-primary transition-all duration-500 bg-card/80 backdrop-blur-md border-primary/20 hover:border-primary/50 cursor-pointer">
+                <Link to={`/product/${node.handle}`}>
+                  <CardHeader className="p-0 relative">
+                    {images.length > 1 ? (
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {images.map((image, idx) => (
+                            <CarouselItem key={idx}>
+                              <div className="aspect-square bg-gradient-to-br from-background to-primary/10">
+                                <img
+                                  src={image.node.url}
+                                  alt={image.node.altText || node.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-2 bg-background/90 border-primary/30 hover:bg-primary/20" />
+                        <CarouselNext className="right-2 bg-background/90 border-primary/30 hover:bg-primary/20" />
+                      </Carousel>
+                    ) : images.length === 1 ? (
+                      <div className="aspect-square bg-gradient-to-br from-background to-primary/10">
+                        <img
+                          src={images[0].node.url}
+                          alt={images[0].node.altText || node.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    ) : (
+                      <div className="aspect-square bg-gradient-to-br from-background to-primary/10 flex items-center justify-center">
+                        <ShoppingCart className="h-16 w-16 text-primary/50" />
+                      </div>
+                    )}
+                  </CardHeader>
+                  <CardContent className="p-6 bg-gradient-to-b from-card/50 to-background">
+                    <CardTitle className="mb-2 text-foreground group-hover:text-primary transition-colors">{node.title}</CardTitle>
+                    <CardDescription className="mb-4 text-foreground/70 line-clamp-2">
+                      {node.description}
+                    </CardDescription>
+                    <p className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                      ${price.toFixed(2)}
+                    </p>
+                  </CardContent>
+                </Link>
                 <CardFooter className="p-6 pt-0 bg-gradient-to-b from-background to-card/30">
                   <Button 
-                    onClick={() => handleAddToCart(product)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleAddToCart(product);
+                    }}
                     className="w-full"
                     variant="hero"
                   >
