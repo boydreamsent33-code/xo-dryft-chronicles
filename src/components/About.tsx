@@ -28,7 +28,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <Card className="bg-card/50 backdrop-blur-lg border border-accent/20 p-8 hover:shadow-glow-accent transition-all duration-300">
             <div className="space-y-6">
               <h3
@@ -77,6 +77,51 @@ const About = () => {
               </p>
             </Card>
           </div>
+        </div>
+
+        {/* The Dryfting Lifestyle Section */}
+        <div className="mt-20">
+          <Card className="bg-card/50 backdrop-blur-lg border border-primary/30 p-10 hover:shadow-glow-primary transition-all duration-300">
+            <div className="text-center mb-8">
+              <h3
+                className="text-4xl font-bold mb-4"
+                style={{ fontFamily: "Orbitron, sans-serif" }}
+              >
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  The Dryfting Lifestyle & Community
+                </span>
+              </h3>
+            </div>
+            
+            <div className="space-y-8 max-w-4xl mx-auto">
+              <div className="space-y-4">
+                <h4 className="text-2xl font-bold text-accent" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                  What Dryfting Means
+                </h4>
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  Dryfting isn't just a word—it's a way of life. It means moving through life with emotion, 
+                  freedom, and purpose, not letting the world box you in. You don't crash, you dryft.
+                </p>
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  Whether it's pain, love, success, or growth, you keep floating forward, adapting, 
+                  and creating your own current.
+                </p>
+              </div>
+
+              <div className="bg-gradient-primary p-8 rounded-lg">
+                <p className="text-2xl font-bold text-center text-foreground italic">
+                  "We don't sink, we don't stop—we DRYFT through it."
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  It's a mindset for the dreamers, the lost ones, and the ones rebuilding their peace. 
+                  People who feel deeply. People chasing healing, truth, and elevation.
+                </p>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
