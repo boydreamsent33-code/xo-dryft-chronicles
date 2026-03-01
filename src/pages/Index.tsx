@@ -7,6 +7,7 @@ import Store from "@/components/Store";
 import Connect from "@/components/Connect";
 import Footer from "@/components/Footer";
 import BackgroundMusic from "@/components/BackgroundMusic";
+import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       </main>
       <Footer />
       <BackgroundMusic />
+      <Chatbot />
     </div>
   );
 };
