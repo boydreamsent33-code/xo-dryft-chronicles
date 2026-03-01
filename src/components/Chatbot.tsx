@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Mic, MicOff, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/xo-dryft-chat`;
+
+const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
 const Chatbot = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +16,54 @@ const Chatbot = () => {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const recognitionRef = useRef<any>(null);
+  const lastSpokenRef = useRef<string>("");
+
+  // Speak text aloud
+  const speak = useCallback((text: string) => {
+    if (!voiceEnabled || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const clean = text.replace(/[*_#`~>\[\]()!]/g, "").replace(/\n+/g, " ").trim();
+    if (!clean || clean === lastSpokenRef.current) return;
+    lastSpokenRef.current = clean;
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.rate = 1.05;
+    utterance.pitch = 1;
+    window.speechSynthesis.speak(utterance);
+  }, [voiceEnabled]);
+
+  // Toggle mic listening
+  const toggleListening = useCallback(() => {
+    if (!SpeechRecognition) return;
+
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    recognition.onresult = (event: any) => {
+      const transcript = Array.from(event.results)
+        .map((r: any) => r[0].transcript)
+        .join("");
+      setInput(transcript);
+    };
+
+    recognition.onend = () => setIsListening(false);
+    recognition.onerror = () => setIsListening(false);
+
+    recognitionRef.current = recognition;
+    recognition.start();
+    setIsListening(true);
+  }, [isListening]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -88,12 +137,14 @@ const Chatbot = () => {
           }
         }
       }
+      // Speak the final response
+      if (assistantSoFar) speak(assistantSoFar);
     } catch {
       setMessages((prev) => [...prev, { role: "assistant", content: "Connection error. Please try again." }]);
     } finally {
       setIsLoading(false);
     }
-  }, [input, isLoading, messages]);
+  }, [input, isLoading, messages, speak]);
 
   return (
     <>
@@ -110,11 +161,21 @@ const Chatbot = () => {
       {open && (
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[70vh] flex flex-col rounded-2xl border border-primary/30 bg-card/95 backdrop-blur-xl shadow-2xl shadow-primary/20 overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-300">
           {/* Header */}
-          <div className="px-4 py-3 bg-gradient-to-r from-primary/20 to-accent/20 border-b border-primary/20">
-            <h3 className="font-bold text-foreground" style={{ fontFamily: "Orbitron, sans-serif" }}>
-              XO DRYFT Bot 🌊
-            </h3>
-            <p className="text-xs text-muted-foreground">Ask about the music, the movement, the lifestyle</p>
+          <div className="px-4 py-3 bg-gradient-to-r from-primary/20 to-accent/20 border-b border-primary/20 flex items-center justify-between">
+            <div>
+              <h3 className="font-bold text-foreground" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                XO DRYFT Bot 🌊
+              </h3>
+              <p className="text-xs text-muted-foreground">Ask or speak — tap the mic</p>
+            </div>
+            <button
+              onClick={() => { setVoiceEnabled(!voiceEnabled); if (voiceEnabled) window.speechSynthesis?.cancel(); }}
+              className="p-1.5 rounded-lg hover:bg-primary/10 transition-colors"
+              aria-label={voiceEnabled ? "Mute voice" : "Enable voice"}
+              title={voiceEnabled ? "Voice on" : "Voice off"}
+            >
+              {voiceEnabled ? <Volume2 className="w-4 h-4 text-primary" /> : <VolumeX className="w-4 h-4 text-muted-foreground" />}
+            </button>
           </div>
 
           {/* Messages */}
@@ -151,16 +212,29 @@ const Chatbot = () => {
             )}
           </div>
 
-          {/* Input */}
           <div className="p-3 border-t border-primary/20">
             <form
               onSubmit={(e) => { e.preventDefault(); send(); }}
               className="flex gap-2"
             >
+              {SpeechRecognition && (
+                <button
+                  type="button"
+                  onClick={toggleListening}
+                  className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                    isListening
+                      ? "bg-primary text-primary-foreground animate-pulse shadow-lg shadow-primary/40"
+                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                  }`}
+                  aria-label={isListening ? "Stop listening" : "Start voice input"}
+                >
+                  {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                </button>
+              )}
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about XO DRYFT..."
+                placeholder={isListening ? "Listening..." : "Ask about XO DRYFT..."}
                 className="flex-1 rounded-xl border border-primary/20 bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                 disabled={isLoading}
               />
